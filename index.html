@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Imran Studio — Premium Website & Web App Developer</title>
+    <meta name="title" content="Imran Studio — Premium Website & Web App Developer" />
+    <meta
+      name="description"
+      content="Imran Studio crafts modern, fast, responsive and premium websites and web apps that help ambitious brands grow online. React, TypeScript, Tailwind CSS."
+    />
+    <meta name="author" content="Imran Studio" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://imranstudio.com/" />
+    <meta property="og:title" content="Imran Studio — Premium Website & Web App Developer" />
+    <meta
+      property="og:description"
+      content="Modern, fast, responsive and premium websites and web apps that help businesses grow online."
+    />
+    <meta property="og:image" content="/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://imranstudio.com/" />
+    <meta property="twitter:title" content="Imran Studio — Premium Website & Web App Developer" />
+    <meta
+      property="twitter:description"
+      content="Modern, fast, responsive and premium websites and web apps that help businesses grow online."
+    />
+    <meta property="twitter:image" content="/favicon.svg" />
+
+    <!-- Fonts: preconnect + preload for FOUC prevention -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload logo/favicon -->
+    <link rel="preload" as="image" href="/favicon.svg" />
+
+    <!-- Prevent FOUC: hide root until React mounts -->
+    <style>
+      html {
+        background: #050505;
+      }
+      #root {
+        opacity: 0;
+      }
+      #root.is-ready {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
