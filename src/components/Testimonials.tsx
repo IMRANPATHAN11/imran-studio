@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import AnimatedCard from './AnimatedCard';
 import ScrollReveal from './ScrollReveal';
-
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonials = [
