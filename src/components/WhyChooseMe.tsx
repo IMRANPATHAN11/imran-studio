@@ -1,5 +1,4 @@
-import AnimatedCard from './AnimatedCard';
-import ScrollReveal from './ScrollReveal';
+
 
 const benefits = [
   {
