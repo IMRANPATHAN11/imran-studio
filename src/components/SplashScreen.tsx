@@ -129,7 +129,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         </div>
 
         {/* Tron road */}
-        <div className="relative mt-8 h-24 w-72 overflow-hidden sm:w-96">
+        <div className="splash-road relative mt-8 h-24 w-72 overflow-hidden sm:w-96">
           {/* Perspective road base */}
           <div
             className="absolute inset-x-8 bottom-0 top-6 mx-auto"
@@ -198,7 +198,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         </div>
 
         {/* Loading bar */}
-        <div className="mt-8 w-64 sm:w-80">
+        <div className="splash-loader mt-8 w-64 sm:w-80">
           <div className="relative h-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.06] backdrop-blur-md">
             <motion.div
               className="h-full rounded-full bg-gradient-to-r from-blue-500 via-blue-400 to-orange-400"

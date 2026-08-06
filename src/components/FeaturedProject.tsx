@@ -7,11 +7,11 @@ export default function FeaturedProject() {
       <div className="absolute left-[8%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
       <div className="absolute right-[8%] bottom-[8%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[160px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
-        <div className="rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-8 lg:p-10">
+        <div className="featured-card rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Featured Project</p>
-              <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+              <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
                 A premium digital experience for modern product teams.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -34,7 +34,7 @@ export default function FeaturedProject() {
               </div>
             </div>
 
-            <AnimatedCard className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/30 p-3">
+            <AnimatedCard className="featured-inner overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/30 p-3">
               <div className="rounded-[1.2rem] border border-white/10 bg-gradient-to-br from-[#171717] via-[#0f0f0f] to-[#1b140f] p-6">
                 <div className="flex items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b00]" />

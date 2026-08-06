@@ -23,7 +23,7 @@ export default function Process() {
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Process</p>
-          <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+          <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
             A calm, intentional process from concept to launch.
           </h2>
         </div>
@@ -32,7 +32,7 @@ export default function Process() {
           {steps.map((step, index) => (
             <AnimatedCard
               key={step.title}
-              className="rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.14)]"
+              className="section-card-padding rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.14)]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#ff6b00]/30 bg-[#ff6b00]/10 text-sm font-semibold text-[#ff6b00]">
                 0{index + 1}

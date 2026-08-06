@@ -31,8 +31,8 @@ function Counter({ target, label }: { target: number; label: string }) {
   }, [target]);
 
   return (
-    <div ref={ref} className="rounded-[1.25rem] border border-white/10 bg-black/30 p-5 text-center">
-      <p className="text-3xl font-semibold text-white">{count}{label === 'Client Satisfaction' ? '%' : '+'}</p>
+    <div ref={ref} className="about-counter rounded-[1.25rem] border border-white/10 bg-black/30 p-5 text-center">
+      <p className="about-counter-value text-3xl font-semibold text-white">{count}{label === 'Client Satisfaction' ? '%' : '+'}</p>
       <p className="mt-2 text-sm leading-6 text-slate-400">{label}</p>
     </div>
   );
@@ -46,7 +46,7 @@ export default function About() {
       <ScrollReveal className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">About</p>
-          <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+          <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
             We design premium digital experiences that make brands feel instantly credible.
           </h2>
           <p className="mt-6 text-lg leading-8 text-slate-300">
@@ -54,7 +54,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+        <div className="card-padding rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
           <div className="flex justify-center">
             {stats.map((stat) => (
               <Counter key={stat.label} target={stat.value} label={stat.label} />

@@ -24,13 +24,13 @@ export default function Testimonials() {
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Testimonials</p>
-          <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+          <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
             Trusted by founders who want more than a standard web presence.
           </h2>
         </div>
 
         <div className="mt-12">
-          <div className="rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+          <div className="testimonial-container rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
                 {testimonials.map((_, index) => (
@@ -46,8 +46,8 @@ export default function Testimonials() {
             </div>
 
             <div className="mt-8 transition-all duration-500" key={activeIndex}>
-              <AnimatedCard className="rounded-[1.5rem] border border-white/10 bg-black/30 p-8">
-                <p className="text-2xl leading-10 text-slate-100">“{testimonials[activeIndex].quote}”</p>
+              <AnimatedCard className="testimonial-inner rounded-[1.5rem] border border-white/10 bg-black/30 p-8">
+                <p className="testimonial-quote text-2xl leading-10 text-slate-100">“{testimonials[activeIndex].quote}”</p>
                 <div className="mt-6 flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#ff6b00]/30 bg-[#ff6b00]/10 text-sm font-semibold text-[#ff6b00]">
                     {testimonials[activeIndex].name.split(' ').map((part) => part[0]).join('')}

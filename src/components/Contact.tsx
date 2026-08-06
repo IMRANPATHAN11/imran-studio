@@ -95,11 +95,11 @@ export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
       <div className="absolute right-[8%] bottom-[10%] h-44 w-44 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
-      <ScrollReveal className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-12">
+      <ScrollReveal className="contact-container mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Contact</p>
-            <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+            <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
               Let&rsquo;s build something exceptional together.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
@@ -107,11 +107,8 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
-            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Start a conversation</p>
-            <a href="mailto:techimran0111@gmail.com?subject=Project%20Inquiry&body=Hello%20Imran,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20my%20project.%0D%0A%0D%0ABest%20Regards" className="mt-4 block text-2xl font-semibold text-white transition hover:text-[#ff6b00]">
-              techimran0111@gmail.com
-            </a>
+          <div className="contact-card rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
+            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Start a Conversation</p>
             <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block text-sm text-slate-400">

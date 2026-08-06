@@ -27,7 +27,7 @@ export default function Portfolio() {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Portfolio</p>
-            <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+            <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
               Selected work that balances elegance, performance, and purpose.
             </h2>
           </div>
@@ -37,7 +37,7 @@ export default function Portfolio() {
           {projects.map((project) => (
             <AnimatedCard
               key={project.title}
-              className="group rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.16)]"
+              className="section-card-padding group rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.16)]"
             >
               <div className="group-hover:scale-[1.02] relative h-32 overflow-hidden rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(255,107,0,0.25),_transparent_40%)] transition duration-300">
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-70" />

@@ -12,7 +12,6 @@ import SplashScreen from './components/SplashScreen';
 import MouseGlow from './components/MouseGlow';
 import Navbar from './components/Navbar';
 import ParticleBackground from './components/ParticleBackground';
-import Pricing from './components/Pricing';
 import Process from './components/Process';
 import Services from './components/Services';
 import StickyContactButton from './components/StickyContactButton';
@@ -104,7 +103,6 @@ export default function App() {
         <FeaturedProject />
         <Services />
         <Process />
-        <Pricing />
         <FAQ />
         <Contact />
         <Footer />

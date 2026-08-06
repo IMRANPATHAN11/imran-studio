@@ -24,7 +24,7 @@ export default function FAQ() {
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">FAQ</p>
-          <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+          <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
             Common questions before we begin.
           </h2>
         </div>
@@ -35,14 +35,14 @@ export default function FAQ() {
             return (
               <div
                 key={item.question}
-                className="rounded-[1.25rem] border border-white/10 bg-white/10 p-6 backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_30px_rgba(255,107,0,0.12)]"
+                className="faq-card rounded-[1.25rem] border border-white/10 bg-white/10 p-6 backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_30px_rgba(255,107,0,0.12)]"
               >
                 <button
                   type="button"
                   className="flex w-full items-center justify-between gap-4 text-left"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
-                  <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                  <h3 className="faq-question text-lg font-semibold text-white">{item.question}</h3>
                   <span className={`text-2xl text-[#ff6b00] transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
                     +
                   </span>

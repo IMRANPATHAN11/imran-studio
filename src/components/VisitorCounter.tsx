@@ -40,7 +40,7 @@ export default function VisitorCounter() {
       />
 
       {/* Card body */}
-      <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-8 shadow-[0_0_80px_rgba(255,107,0,0.12)] backdrop-blur-2xl sm:p-10">
+      <div className="visitor-card relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-8 shadow-[0_0_80px_rgba(255,107,0,0.12)] backdrop-blur-2xl sm:p-10">
         {/* Animated gradient wash */}
         <div
           className="visitor-gradient pointer-events-none absolute inset-0"

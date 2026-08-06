@@ -634,6 +634,807 @@ section::after {
 }
 
 /* ============================================================
+   Footer premium animations
+   ============================================================ */
+@keyframes footerParticleFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(var(--drift-x, 12px), -22px, 0);
+    opacity: 0.7;
+  }
+}
+
+/* ============================================================
+   Mobile Responsiveness
+   ============================================================ */
+
+/* Global mobile safety: prevent horizontal scroll & image overflow */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   Breakpoint: 320px (small phones)
+   ============================================================ */
+@media (max-width: 320px) {
+  /* Reduce section padding to keep content within viewport */
+  section,
+  footer {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Hero: scale down headline and stats */
+  .hero-headline {
+    font-size: 2.1rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 0.5rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.4rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.65rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Reduce card padding on small screens */
+  .card-padding {
+    padding: 1.25rem !important;
+  }
+
+  /* Contact form: reduce container padding */
+  .contact-container {
+    padding: 1.25rem !important;
+  }
+
+  .contact-card {
+    padding: 1.25rem !important;
+  }
+
+  /* Pricing cards */
+  .pricing-card {
+    padding: 1.5rem !important;
+  }
+
+  /* Testimonials quote */
+  .testimonial-quote {
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Splash screen: scale down road and loading bar */
+  .splash-road {
+    width: 15rem !important;
+  }
+
+  .splash-loader {
+    width: 14rem !important;
+  }
+
+  /* Loading screen card */
+  .loading-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .loading-bar {
+    width: 14rem !important;
+  }
+
+  /* Footer card */
+  .footer-card {
+    padding: 1.5rem !important;
+  }
+
+  /* Navbar: reduce logo tracking */
+  .navbar-logo {
+    letter-spacing: 0.1em !important;
+    font-size: 1rem !important;
+  }
+
+  /* Visitor counter */
+  .visitor-card {
+    padding: 1.5rem !important;
+  }
+
+  .visitor-value {
+    font-size: 3.5rem !important;
+  }
+
+  /* FAQ question text */
+  .faq-question {
+    font-size: 1rem !important;
+  }
+
+  /* Buttons: ensure proper spacing */
+  .btn-group {
+    gap: 0.75rem !important;
+  }
+
+  /* Featured project */
+  .featured-card {
+    padding: 1.25rem !important;
+  }
+
+  /* Technology stack cards */
+  .tech-card {
+    padding: 1.25rem !important;
+  }
+
+  /* Services / Process / Portfolio cards */
+  .section-card-padding {
+    padding: 1.5rem !important;
+  }
+
+  /* Why choose me cards */
+  .why-card {
+    padding: 1.25rem !important;
+  }
+
+  /* About counter */
+  .about-counter {
+    padding: 1rem !important;
+  }
+
+  .about-counter-value {
+    font-size: 2rem !important;
+  }
+
+  /* Sticky contact button */
+  .sticky-contact {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    padding: 0.65rem 1.1rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Section headings */
+  .section-heading {
+    font-size: 1.6rem !important;
+  }
+
+  /* Testimonials container */
+  .testimonial-container {
+    padding: 1.25rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.25rem !important;
+  }
+
+  /* Featured project inner */
+  .featured-inner {
+    padding: 1.25rem !important;
+  }
+}
+
+/* ============================================================
+   Breakpoint: 375px (standard phones)
+   ============================================================ */
+@media (min-width: 321px) and (max-width: 375px) {
+  /* Reduce section padding */
+  section,
+  footer {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Hero: scale down headline */
+  .hero-headline {
+    font-size: 2.4rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 0.75rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* Reduce card padding */
+  .card-padding {
+    padding: 1.5rem !important;
+  }
+
+  .contact-container {
+    padding: 1.5rem !important;
+  }
+
+  .contact-card {
+    padding: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.25rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .splash-road {
+    width: 17rem !important;
+  }
+
+  .splash-loader {
+    width: 15rem !important;
+  }
+
+  .loading-card {
+    padding: 1.75rem 1.5rem !important;
+  }
+
+  .loading-bar {
+    width: 15rem !important;
+  }
+
+  .footer-card {
+    padding: 1.75rem !important;
+  }
+
+  .navbar-logo {
+    letter-spacing: 0.12em !important;
+  }
+
+  .visitor-card {
+    padding: 1.75rem !important;
+  }
+
+  .visitor-value {
+    font-size: 4rem !important;
+  }
+
+  .faq-question {
+    font-size: 1.05rem !important;
+  }
+
+  .btn-group {
+    gap: 0.85rem !important;
+  }
+
+  .featured-card {
+    padding: 1.5rem !important;
+  }
+
+  .tech-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .why-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-heading {
+    font-size: 1.75rem !important;
+  }
+
+  .testimonial-container {
+    padding: 1.5rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.5rem !important;
+  }
+
+  .featured-inner {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ============================================================
+   Breakpoint: 390px (iPhone 12/13/14)
+   ============================================================ */
+@media (min-width: 376px) and (max-width: 390px) {
+  section,
+  footer {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 0.75rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  .card-padding {
+    padding: 1.5rem !important;
+  }
+
+  .contact-container {
+    padding: 1.5rem !important;
+  }
+
+  .contact-card {
+    padding: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.3rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .splash-road {
+    width: 17rem !important;
+  }
+
+  .splash-loader {
+    width: 15rem !important;
+  }
+
+  .loading-card {
+    padding: 1.75rem 1.5rem !important;
+  }
+
+  .loading-bar {
+    width: 15rem !important;
+  }
+
+  .footer-card {
+    padding: 1.75rem !important;
+  }
+
+  .navbar-logo {
+    letter-spacing: 0.12em !important;
+  }
+
+  .visitor-card {
+    padding: 1.75rem !important;
+  }
+
+  .visitor-value {
+    font-size: 4rem !important;
+  }
+
+  .faq-question {
+    font-size: 1.05rem !important;
+  }
+
+  .btn-group {
+    gap: 0.85rem !important;
+  }
+
+  .featured-card {
+    padding: 1.5rem !important;
+  }
+
+  .tech-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .why-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-heading {
+    font-size: 1.8rem !important;
+  }
+
+  .testimonial-container {
+    padding: 1.5rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.5rem !important;
+  }
+
+  .featured-inner {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ============================================================
+   Breakpoint: 414px (larger phones)
+   ============================================================ */
+@media (min-width: 391px) and (max-width: 414px) {
+  section,
+  footer {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .hero-headline {
+    font-size: 2.6rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 0.75rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  .card-padding {
+    padding: 1.5rem !important;
+  }
+
+  .contact-container {
+    padding: 1.5rem !important;
+  }
+
+  .contact-card {
+    padding: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.35rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .splash-road {
+    width: 18rem !important;
+  }
+
+  .splash-loader {
+    width: 16rem !important;
+  }
+
+  .loading-card {
+    padding: 1.75rem 1.5rem !important;
+  }
+
+  .loading-bar {
+    width: 16rem !important;
+  }
+
+  .footer-card {
+    padding: 1.75rem !important;
+  }
+
+  .navbar-logo {
+    letter-spacing: 0.12em !important;
+  }
+
+  .visitor-card {
+    padding: 1.75rem !important;
+  }
+
+  .visitor-value {
+    font-size: 4rem !important;
+  }
+
+  .faq-question {
+    font-size: 1.05rem !important;
+  }
+
+  .btn-group {
+    gap: 0.85rem !important;
+  }
+
+  .featured-card {
+    padding: 1.5rem !important;
+  }
+
+  .tech-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .why-card {
+    padding: 1.5rem !important;
+  }
+
+  .section-heading {
+    font-size: 1.85rem !important;
+  }
+
+  .testimonial-container {
+    padding: 1.5rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.5rem !important;
+  }
+
+  .featured-inner {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ============================================================
+   Breakpoint: 768px (tablets)
+   ============================================================ */
+@media (min-width: 415px) and (max-width: 768px) {
+  section,
+  footer {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .hero-headline {
+    font-size: 3rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 1rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  .card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .contact-container {
+    padding: 1.75rem !important;
+  }
+
+  .contact-card {
+    padding: 1.75rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.5rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .splash-road {
+    width: 20rem !important;
+  }
+
+  .splash-loader {
+    width: 18rem !important;
+  }
+
+  .loading-card {
+    padding: 2rem 1.75rem !important;
+  }
+
+  .loading-bar {
+    width: 18rem !important;
+  }
+
+  .footer-card {
+    padding: 1.75rem !important;
+  }
+
+  .navbar-logo {
+    letter-spacing: 0.15em !important;
+  }
+
+  .visitor-card {
+    padding: 1.75rem !important;
+  }
+
+  .visitor-value {
+    font-size: 4.5rem !important;
+  }
+
+  .faq-question {
+    font-size: 1.1rem !important;
+  }
+
+  .btn-group {
+    gap: 1rem !important;
+  }
+
+  .featured-card {
+    padding: 1.75rem !important;
+  }
+
+  .tech-card {
+    padding: 1.75rem !important;
+  }
+
+  .section-card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .why-card {
+    padding: 1.75rem !important;
+  }
+
+  .section-heading {
+    font-size: 2rem !important;
+  }
+
+  .testimonial-container {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.75rem !important;
+  }
+
+  .featured-inner {
+    padding: 1.75rem !important;
+  }
+}
+
+/* ============================================================
+   Breakpoint: 1024px (small desktops / large tablets)
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  section,
+  footer {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .hero-headline {
+    font-size: 3.5rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-stats {
+    gap: 1rem !important;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  .card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .contact-container {
+    padding: 1.75rem !important;
+  }
+
+  .contact-card {
+    padding: 1.75rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.5rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .splash-road {
+    width: 20rem !important;
+  }
+
+  .splash-loader {
+    width: 18rem !important;
+  }
+
+  .loading-card {
+    padding: 2rem 1.75rem !important;
+  }
+
+  .loading-bar {
+    width: 18rem !important;
+  }
+
+  .footer-card {
+    padding: 1.75rem !important;
+  }
+
+  .navbar-logo {
+    letter-spacing: 0.15em !important;
+  }
+
+  .visitor-card {
+    padding: 1.75rem !important;
+  }
+
+  .visitor-value {
+    font-size: 4.5rem !important;
+  }
+
+  .faq-question {
+    font-size: 1.1rem !important;
+  }
+
+  .btn-group {
+    gap: 1rem !important;
+  }
+
+  .featured-card {
+    padding: 1.75rem !important;
+  }
+
+  .tech-card {
+    padding: 1.75rem !important;
+  }
+
+  .section-card-padding {
+    padding: 1.75rem !important;
+  }
+
+  .why-card {
+    padding: 1.75rem !important;
+  }
+
+  .section-heading {
+    font-size: 2.25rem !important;
+  }
+
+  .testimonial-container {
+    padding: 1.75rem !important;
+  }
+
+  .testimonial-inner {
+    padding: 1.75rem !important;
+  }
+
+  .featured-inner {
+    padding: 1.75rem !important;
+  }
+}
+
+/* ============================================================
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {

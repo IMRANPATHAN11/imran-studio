@@ -58,7 +58,7 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-          <a href="#home" className="group text-lg font-semibold tracking-[0.2em] text-white transition hover:text-[#ff6b00]">
+          <a href="#home" className="navbar-logo group text-lg font-semibold tracking-[0.2em] text-white transition hover:text-[#ff6b00]">
             <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-all duration-500 group-hover:bg-[length:100%_2px] group-hover:from-[#ff6b00] group-hover:to-[#ff8a3d]">
               Imran Tech
             </span>

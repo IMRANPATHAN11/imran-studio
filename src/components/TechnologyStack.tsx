@@ -23,7 +23,7 @@ export default function TechnologyStack() {
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Stack</p>
-          <h2 className="mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
+          <h2 className="section-heading mt-4 bg-gradient-to-r from-white via-[#f8d7c2] to-[#ff8a3d] bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl">
             Built with modern technologies.
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -35,7 +35,7 @@ export default function TechnologyStack() {
           {technologies.map((technology) => (
             <AnimatedCard
               key={technology}
-              className="rounded-[1.35rem] border border-white/10 bg-white/8 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#ff6b00]/40 hover:shadow-[0_0_40px_rgba(255,107,0,0.14)]"
+              className="tech-card rounded-[1.35rem] border border-white/10 bg-white/8 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#ff6b00]/40 hover:shadow-[0_0_40px_rgba(255,107,0,0.14)]"
             >
               <div className="flex items-center justify-between">
                 <p className="text-lg font-semibold text-white">{technology}</p>

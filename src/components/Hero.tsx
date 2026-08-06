@@ -164,7 +164,7 @@ export default function Hero({ started = true }: { started?: boolean }) {
             variants={itemVariants}
             className="mt-8 text-sm font-medium uppercase tracking-[0.35em] text-slate-400 sm:text-base"
           >
-            Welcome to Imran Studio
+            Welcome to Imran Portfolio
           </motion.p>
 
           {/* Headline */}
@@ -172,7 +172,7 @@ export default function Hero({ started = true }: { started?: boolean }) {
             ref={headlineRef}
             variants={itemVariants}
             aria-label="Premium Website and Web App Developer"
-            className="mt-6 text-gradient text-4xl font-semibold leading-[0.95] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-7xl"
+            className="hero-headline mt-6 text-gradient text-4xl font-semibold leading-[0.95] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Premium Website &<br />
             Web App Developer
@@ -189,7 +189,7 @@ export default function Hero({ started = true }: { started?: boolean }) {
           {/* CTAs */}
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
+            className="btn-group mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
           >
             <MagneticButton
               href="#contact"
@@ -208,12 +208,12 @@ export default function Hero({ started = true }: { started?: boolean }) {
           {/* Stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-14 grid max-w-md grid-cols-3 gap-4 lg:mx-0"
+            className="hero-stats mt-14 grid max-w-md grid-cols-3 gap-4 lg:mx-0"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-center lg:text-left">
-                <p className="text-gradient-accent text-2xl font-semibold sm:text-3xl">{stat.value}</p>
-                <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">{stat.label}</p>
+                <p className="stat-value text-gradient-accent text-2xl font-semibold sm:text-3xl">{stat.value}</p>
+                <p className="stat-label mt-1 text-xs leading-5 text-slate-400 sm:text-sm">{stat.label}</p>
               </div>
             ))}
           </motion.div>
