@@ -4,10 +4,10 @@ import ScrollReveal from './ScrollReveal';
 export default function FeaturedProject() {
   return (
     <section className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[8%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
-      <div className="absolute right-[8%] bottom-[8%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[160px]" />
+      <div className="absolute left-[8%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
+      <div className="absolute right-[8%] bottom-[8%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[60px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
-        <div className="featured-card rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-8 lg:p-10">
+        <div className="featured-card rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Featured Project</p>
@@ -36,17 +36,34 @@ export default function FeaturedProject() {
 
             <AnimatedCard className="featured-inner overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/30 p-3">
               <div className="rounded-[1.2rem] border border-white/10 bg-gradient-to-br from-[#171717] via-[#0f0f0f] to-[#1b140f] p-6">
+                {/* Browser chrome */}
                 <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b00]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b00] shadow-[0_0_6px_rgba(255,107,0,0.6)]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <div className="ml-3 flex-1 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                    <div className="h-1.5 w-24 rounded-full bg-white/10" />
+                  </div>
                 </div>
-                <div className="mt-6 rounded-[1rem] border border-white/10 bg-white/5 p-4">
-                  <div className="h-3 w-28 rounded-full bg-white/15" />
-                  <div className="mt-4 h-32 rounded-[0.8rem] bg-gradient-to-br from-[#ff6b00]/30 to-transparent" />
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div className="h-16 rounded-[0.8rem] border border-white/10 bg-white/5" />
-                    <div className="h-16 rounded-[0.8rem] border border-white/10 bg-white/5" />
+
+                {/* Animated browser preview */}
+                <div className="mt-6 overflow-hidden rounded-[1rem] border border-white/10 bg-white/5">
+                  {/* Auto-scrolling content */}
+                  <div className="browser-scroll p-4">
+                    <div className="h-3 w-28 rounded-full bg-white/15" />
+                    <div className="mt-3 h-2 w-20 rounded-full bg-white/8" />
+                    <div className="mt-4 h-32 rounded-[0.8rem] bg-gradient-to-br from-[#ff6b00]/30 to-transparent" />
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <div className="h-16 rounded-[0.8rem] border border-white/10 bg-white/5" />
+                      <div className="h-16 rounded-[0.8rem] border border-white/10 bg-white/5" />
+                    </div>
+                    <div className="mt-4 h-3 w-32 rounded-full bg-white/12" />
+                    <div className="mt-3 h-2 w-24 rounded-full bg-white/8" />
+                    <div className="mt-4 h-24 rounded-[0.8rem] bg-gradient-to-br from-[#ff8a3d]/20 to-transparent" />
+                  </div>
+                  {/* Scrollbar indicator */}
+                  <div className="pointer-events-none absolute right-1 top-2 bottom-2 w-1 rounded-full bg-white/10">
+                    <div className="browser-scrollbar h-1/3 w-full rounded-full bg-[#ff6b00]/60" />
                   </div>
                 </div>
               </div>

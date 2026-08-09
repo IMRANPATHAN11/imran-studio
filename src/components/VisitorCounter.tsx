@@ -40,7 +40,7 @@ export default function VisitorCounter() {
       />
 
       {/* Card body */}
-      <div className="visitor-card relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-8 shadow-[0_0_80px_rgba(255,107,0,0.12)] backdrop-blur-2xl sm:p-10">
+      <div className="visitor-card relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/30 p-8 shadow-[0_0_80px_rgba(255,107,0,0.12)] backdrop-blur-lg sm:p-10">
         {/* Animated gradient wash */}
         <div
           className="visitor-gradient pointer-events-none absolute inset-0"
@@ -80,16 +80,16 @@ export default function VisitorCounter() {
         <div className="relative z-10 text-center">
           {/* Live indicator */}
           <div className="flex items-center justify-center gap-2.5">
-            <span className="visitor-live-dot relative h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.42em] text-emerald-300 sm:text-xs">
+            <span className="visitor-live-dot relative h-2.5 w-2.5 rounded-full bg-[var(--success)]" aria-hidden="true" />
+            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.42em] text-[var(--visitor-live)] sm:text-xs">
               Live
             </span>
           </div>
 
           {/* Eye + label */}
-          <div className="mt-6 flex items-center justify-center gap-3 text-slate-300">
+          <div className="mt-6 flex items-center justify-center gap-3 text-[var(--visitor-label)]">
             <svg
-              className="h-5 w-5 text-[#ff8a3d]"
+              className="h-5 w-5 text-[var(--accent)]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -101,13 +101,13 @@ export default function VisitorCounter() {
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
               <circle cx="12" cy="12" r="3" />
             </svg>
-            <p className="text-xs font-semibold uppercase tracking-[0.38em] text-slate-400 sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[var(--visitor-label)] sm:text-sm">
               Total Visitors
             </p>
           </div>
 
           {/* Fixed value — NEVER changes, only the glow/shimmer animate */}
-          <p className="mt-4 text-gradient-accent visitor-value text-6xl font-semibold tracking-tight sm:text-7xl">
+          <p className="mt-4 text-[var(--visitor-value)] visitor-value text-6xl font-semibold tracking-tight sm:text-7xl">
             1K+
           </p>
 

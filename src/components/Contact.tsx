@@ -94,8 +94,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute right-[8%] bottom-[10%] h-44 w-44 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
-      <ScrollReveal className="contact-container mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-12">
+      <div className="absolute right-[8%] bottom-[10%] h-44 w-44 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
+      <ScrollReveal className="contact-container mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/15 to-white/5 p-8 shadow-[0_0_70px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Contact</p>
@@ -107,23 +107,23 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="contact-card rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
+          <div className="contact-card card-animated-border rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Start a Conversation</p>
             <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Name</span>
                   <input
                     aria-label="Name"
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="Your name"
                     required
                   />
                 </label>
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Email</span>
                   <input
                     aria-label="Email"
@@ -131,55 +131,55 @@ export default function Contact() {
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="you@example.com"
                     required
                   />
                 </label>
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Phone</span>
                   <input
                     aria-label="Phone"
                     name="phone"
                     value={formState.phone}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="Phone number"
                     required
                   />
                 </label>
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Company</span>
                   <input
                     aria-label="Company"
                     name="company"
                     value={formState.company}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="Company name"
                     required
                   />
                 </label>
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Budget</span>
                   <input
                     aria-label="Budget"
                     name="budget"
                     value={formState.budget}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="Estimated budget"
                     required
                   />
                 </label>
-                <label className="block text-sm text-slate-400">
+                <label className="input-premium block text-sm text-slate-400">
                   <span className="mb-2 block">Project Type</span>
                   <select
                     aria-label="Project Type"
                     name="projectType"
                     value={formState.projectType}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-black/60 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full bg-black/60 px-4 py-3 text-white"
                     required
                   >
                     <option value="">Select one</option>
@@ -189,27 +189,27 @@ export default function Contact() {
                     <option value="E-commerce">E-commerce</option>
                   </select>
                 </label>
-                <label className="block text-sm text-slate-400 sm:col-span-2">
+                <label className="input-premium block text-sm text-slate-400 sm:col-span-2">
                   <span className="mb-2 block">Timeline</span>
                   <input
                     aria-label="Timeline"
                     name="timeline"
                     value={formState.timeline}
                     onChange={handleChange}
-                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                    className="w-full px-4 py-3 text-white"
                     placeholder="When do you want to start?"
                     required
                   />
                 </label>
               </div>
-              <label className="block text-sm text-slate-400">
+              <label className="input-premium block text-sm text-slate-400">
                 <span className="mb-2 block">Message</span>
                 <textarea
                   aria-label="Message"
                   name="message"
                   value={formState.message}
                   onChange={handleChange}
-                  className="min-h-28 w-full rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-[#ff6b00]"
+                  className="min-h-28 w-full px-4 py-3 text-white"
                   placeholder="Tell me about your project"
                   required
                 />
@@ -236,7 +236,7 @@ export default function Contact() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-md"
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -255,7 +255,7 @@ export default function Contact() {
               aria-label="Message sent successfully"
             >
               <motion.div
-                className="relative w-full max-w-md overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-[#0c0c0c]/95 via-[#0f0a06]/95 to-[#0c0c0c]/95 backdrop-blur-2xl shadow-[0_0_80px_rgba(255,107,0,0.18)]"
+                className="relative w-full max-w-md overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-[#0c0c0c]/95 via-[#0f0a06]/95 to-[#0c0c0c]/95 backdrop-blur-lg shadow-[0_0_80px_rgba(255,107,0,0.18)]"
                 initial={{ scale: 0.9, y: 20, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 exit={{ scale: 0.9, y: 20, opacity: 0 }}
@@ -329,7 +329,7 @@ export default function Contact() {
       </AnimatePresence>
 
       {error && !showSuccess && (
-        <div className="fixed right-4 top-4 z-[95] max-w-sm rounded-[1rem] border border-[#ff6b00]/30 bg-[#090909]/95 px-4 py-3 text-sm text-[#ffb36b] shadow-[0_0_40px_rgba(255,107,0,0.16)] backdrop-blur-xl">
+        <div className="fixed right-4 top-4 z-[95] max-w-sm rounded-[1rem] border border-[#ff6b00]/30 bg-[#090909]/95 px-4 py-3 text-sm text-[#ffb36b] shadow-[0_0_40px_rgba(255,107,0,0.16)] backdrop-blur-sm">
           {error}
         </div>
       )}

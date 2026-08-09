@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -52,10 +52,28 @@
     <!-- Preload logo/favicon -->
     <link rel="preload" as="image" href="/favicon.svg" />
 
+    <!-- Prevent FOUC: set theme before paint (defaults to DARK) -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('imran-tech-theme');
+          var theme = stored === 'light' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      })();
+    </script>
+
     <!-- Prevent FOUC: hide root until React mounts -->
     <style>
       html {
         background: #050505;
+      }
+      html[data-theme='light'] {
+        background: #faf6f1;
       }
       #root {
         opacity: 0;

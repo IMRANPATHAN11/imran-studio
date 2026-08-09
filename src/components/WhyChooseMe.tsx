@@ -30,8 +30,8 @@ const benefits = [
 export default function WhyChooseMe() {
   return (
     <section className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[10%] top-[12%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
-      <div className="absolute right-[8%] bottom-[8%] h-44 w-44 rounded-full bg-[#ff6b00]/10 blur-[150px]" />
+      <div className="absolute left-[10%] top-[12%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
+      <div className="absolute right-[8%] bottom-[8%] h-44 w-44 rounded-full bg-[#ff6b00]/10 blur-[55px]" />
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Why Choose Me</p>

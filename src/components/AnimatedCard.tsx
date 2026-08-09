@@ -1,18 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 type AnimatedCardProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export default function AnimatedCard({ children, className = '' }: AnimatedCardProps) {
+function AnimatedCard({ children, className = '' }: AnimatedCardProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [transform, setTransform] = useState('translateY(0px) rotateX(0deg) rotateY(0deg)');
-  const [glow, setGlow] = useState({ x: 50, y: 50, opacity: 0 });
+  const glowRef = useRef<HTMLDivElement | null>(null);
+  const borderGlowRef = useRef<HTMLDivElement | null>(null);
+  const spotlightRef = useRef<HTMLDivElement | null>(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || reduceMotion) return;
+
+    // Check if touch device
+    const isTouch = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
 
     const handleMouseMove = (event: Event) => {
       const mouseEvent = event as MouseEvent;
@@ -21,46 +28,76 @@ export default function AnimatedCard({ children, className = '' }: AnimatedCardP
       const y = mouseEvent.clientY - rect.top;
       const rotateY = ((x / rect.width) - 0.5) * 10;
       const rotateX = ((0.5 - y / rect.height) * 10);
-      setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`);
-      setGlow({ x: (x / rect.width) * 100, y: (y / rect.height) * 100, opacity: 1 });
+      const glowX = (x / rect.width) * 100;
+      const glowY = (y / rect.height) * 100;
+
+      // Direct DOM updates - no React re-renders
+      element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+      if (glowRef.current) {
+        glowRef.current.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(255,255,255,0.14), transparent 55%)`;
+        glowRef.current.style.opacity = '1';
+      }
+      if (borderGlowRef.current) {
+        borderGlowRef.current.style.opacity = '0.9';
+      }
+      if (spotlightRef.current) {
+        spotlightRef.current.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(255,107,0,0.1), transparent 50%)`;
+        spotlightRef.current.style.opacity = '0.6';
+      }
     };
 
     const handleMouseLeave = () => {
-      setTransform('translateY(0px) rotateX(0deg) rotateY(0deg) scale(1)');
-      setGlow((prev) => ({ ...prev, opacity: 0 }));
+      element.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg) scale(1)';
+      if (glowRef.current) glowRef.current.style.opacity = '0';
+      if (borderGlowRef.current) borderGlowRef.current.style.opacity = '0';
+      if (spotlightRef.current) spotlightRef.current.style.opacity = '0';
     };
 
-    element.addEventListener('mousemove', handleMouseMove);
+    element.addEventListener('mousemove', handleMouseMove, { passive: true });
     element.addEventListener('mouseleave', handleMouseLeave);
+
     return () => {
       element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <div
       ref={ref}
-      className={`card-hover group relative transition-transform duration-300 ease-out will-change-transform ${className}`}
-      style={{ transform, transformStyle: 'preserve-3d' }}
+      className={`card-animated-border card-reflect group relative transition-transform duration-300 ease-out will-change-transform ${className}`}
+      style={{ transformStyle: 'preserve-3d' }}
     >
       {/* Light reflection that follows the cursor */}
       <div
-        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        ref={glowRef}
+        className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255,255,255,0.12), transparent 55%)`,
-          opacity: glow.opacity,
+          background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.14), transparent 55%)',
+          opacity: 0,
         }}
       />
       {/* Border glow */}
       <div
-        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        ref={borderGlowRef}
+        className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300"
         style={{
-          boxShadow: `0 0 40px rgba(255,107,0,0.15), inset 0 0 20px rgba(255,107,0,0.05)`,
-          opacity: glow.opacity * 0.8,
+          boxShadow: `0 0 50px rgba(255,107,0,0.18), inset 0 0 25px rgba(255,107,0,0.06)`,
+          opacity: 0,
+        }}
+      />
+      {/* Orange mouse spotlight */}
+      <div
+        ref={spotlightRef}
+        className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300"
+        style={{
+          background: 'radial-gradient(circle at 50% 50%, rgba(255,107,0,0.1), transparent 50%)',
+          opacity: 0,
         }}
       />
       {children}
     </div>
   );
 }
+
+export default memo(AnimatedCard);

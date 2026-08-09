@@ -19,7 +19,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[10%] top-[12%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[120px]" />
+      <div className="absolute left-[10%] top-[12%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[45px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Services</p>
@@ -32,7 +32,7 @@ export default function Services() {
           {services.map((service) => (
             <AnimatedCard
               key={service.title}
-              className="section-card-padding rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.16)]"
+              className="section-card-padding rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-sm transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.16)]"
             >
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-4 text-base leading-7 text-slate-400">{service.description}</p>

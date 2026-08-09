@@ -9,15 +9,20 @@ import App from './App.tsx'
 gsap.registerPlugin(ScrollTrigger)
 
 // Lenis smooth scrolling integrated with GSAP ScrollTrigger
+// Premium tuned settings for ultra-smooth 60 FPS scrolling
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 1.1,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  touchMultiplier: 1.6,
+  touchMultiplier: 1.4,
+  wheelMultiplier: 0.9,
+  infinite: false,
 })
 
+// Single scroll handler - no duplicate listeners
 lenis.on('scroll', ScrollTrigger.update)
 
+// Use GSAP ticker for rAF-driven Lenis updates
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000)
 })
@@ -36,7 +41,7 @@ document.addEventListener('click', (event) => {
   const element = document.querySelector(hash)
   if (!element) return
   event.preventDefault()
-  lenis.scrollTo(element as HTMLElement, { offset: -80, duration: 1.2 })
+  lenis.scrollTo(element as HTMLElement, { offset: -80, duration: 1.1 })
 })
 
 const rootElement = document.getElementById('root')!

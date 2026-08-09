@@ -41,8 +41,8 @@ function Counter({ target, label }: { target: number; label: string }) {
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[-5%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[120px]" />
-      <div className="absolute bottom-[8%] right-[-4%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
+      <div className="absolute left-[-5%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[45px]" />
+      <div className="absolute bottom-[8%] right-[-4%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
       <ScrollReveal className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">About</p>
@@ -54,7 +54,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="card-padding rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+        <div className="card-padding rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-sm">
           <div className="flex justify-center">
             {stats.map((stat) => (
               <Counter key={stat.label} target={stat.value} label={stat.label} />

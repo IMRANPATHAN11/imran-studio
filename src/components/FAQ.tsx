@@ -20,7 +20,7 @@ export default function FAQ() {
 
   return (
     <section className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[8%] top-[10%] h-32 w-32 rounded-full bg-[#ff6b00]/10 blur-[120px]" />
+      <div className="absolute left-[8%] top-[10%] h-32 w-32 rounded-full bg-[#ff6b00]/10 blur-[45px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">FAQ</p>
@@ -35,7 +35,7 @@ export default function FAQ() {
             return (
               <div
                 key={item.question}
-                className="faq-card rounded-[1.25rem] border border-white/10 bg-white/10 p-6 backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_30px_rgba(255,107,0,0.12)]"
+                className="faq-card rounded-[1.25rem] border border-white/10 bg-white/10 p-6 backdrop-blur-sm transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_30px_rgba(255,107,0,0.12)]"
               >
                 <button
                   type="button"

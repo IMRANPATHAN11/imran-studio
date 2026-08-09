@@ -7,6 +7,7 @@ import CustomCursor from './components/CustomCursor';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FeaturedProject from './components/FeaturedProject';
+import FloatingActions from './components/FloatingActions';
 import Hero from './components/Hero';
 import SplashScreen from './components/SplashScreen';
 import MouseGlow from './components/MouseGlow';
@@ -77,7 +78,7 @@ export default function App() {
       </AnimatePresence>
 
       <motion.div
-        className={`relative min-h-screen overflow-hidden bg-[#050505] text-white ${showSplash ? 'pointer-events-none' : ''}`}
+        className={`relative min-h-screen overflow-hidden bg-[var(--bg)] text-[var(--text)] ${showSplash ? 'pointer-events-none' : ''}`}
         data-reduced-motion={prefersReducedMotion ? 'true' : 'false'}
         initial={{ opacity: 0 }}
         animate={{ opacity: showSplash ? 0 : 1 }}
@@ -86,27 +87,42 @@ export default function App() {
         <ParticleBackground />
         <MouseGlow />
         <CustomCursor />
+        {/* Cinematic atmosphere overlays */}
+        <div className="cinematic-vignette" aria-hidden="true" />
+        <div className="cinematic-grain" aria-hidden="true" />
 
-        {/* Navbar fades in together with the page */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: showSplash ? 0 : 1, y: showSplash ? -12 : 0 }}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.1, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Navbar />
-        </motion.div>
+        {/* Main content — always above background glow layers */}
+        <div className="relative z-10">
+          {/* Navbar fades in together with the page */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: showSplash ? 0 : 1, y: showSplash ? -12 : 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Navbar />
+          </motion.div>
 
-        <Hero started={heroStarted} />
-        <About />
-        <TechnologyStack />
-        <WhyChooseMe />
-        <FeaturedProject />
-        <Services />
-        <Process />
-        <FAQ />
-        <Contact />
-        <Footer />
+          <Hero started={heroStarted} />
+          <div className="section-divider" aria-hidden="true" />
+          <About />
+          <div className="section-divider" aria-hidden="true" />
+          <TechnologyStack />
+          <div className="section-divider" aria-hidden="true" />
+          <WhyChooseMe />
+          <div className="section-divider" aria-hidden="true" />
+          <FeaturedProject />
+          <div className="section-divider" aria-hidden="true" />
+          <Services />
+          <div className="section-divider" aria-hidden="true" />
+          <Process />
+          <div className="section-divider" aria-hidden="true" />
+          <FAQ />
+          <div className="section-divider" aria-hidden="true" />
+          <Contact />
+          <Footer />
+        </div>
         <StickyContactButton />
+        <FloatingActions />
       </motion.div>
     </>
   );

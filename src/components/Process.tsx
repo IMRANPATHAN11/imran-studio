@@ -19,7 +19,7 @@ export default function Process() {
 
   return (
     <section id="process" className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute right-[8%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[120px]" />
+      <div className="absolute right-[8%] top-[10%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[45px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Process</p>
@@ -28,11 +28,12 @@ export default function Process() {
           </h2>
         </div>
 
+        <div className="process-connector" aria-hidden="true" />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {steps.map((step, index) => (
             <AnimatedCard
               key={step.title}
-              className="section-card-padding rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.14)]"
+              className="section-card-padding rounded-[1.75rem] border border-white/10 bg-white/10 p-8 shadow-[0_0_60px_rgba(0,0,0,0.28)] backdrop-blur-sm transition duration-300 hover:border-[#ff6b00]/30 hover:shadow-[0_0_50px_rgba(255,107,0,0.14)]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#ff6b00]/30 bg-[#ff6b00]/10 text-sm font-semibold text-[#ff6b00]">
                 0{index + 1}

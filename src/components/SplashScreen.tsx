@@ -16,7 +16,7 @@ const sparks = Array.from({ length: 10 }, (_, i) => ({
   delay: `${(i % 5) * 0.35}s`,
   duration: `${2.4 + (i % 4) * 0.6}s`,
   size: 3 + (i % 3),
-  hue: i % 2 === 0 ? 'rgba(96, 165, 250, 0.9)' : 'rgba(255, 138, 61, 0.9)',
+  hue: i % 2 === 0 ? 'rgba(206, 93, 17, 0.9)' : 'rgba(255, 138, 61, 0.9)',
 }))
 
 const roadParticles = Array.from({ length: 14 }, (_, i) => ({
@@ -54,8 +54,8 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
       <div className="absolute inset-0">
         {/* Deep space gradient + blue/orange glows */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#05070d] via-[#0a1630] to-[#05060b]" />
-        <div className="absolute left-1/2 top-[38%] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.35),transparent_65%)] blur-[80px]" />
-        <div className="absolute bottom-[6%] left-1/2 h-[22rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,107,0,0.22),transparent_70%)] blur-[90px]" />
+        <div className="absolute left-1/2 top-[38%] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.35),transparent_65%)] blur-[30px]" />
+        <div className="absolute bottom-[6%] left-1/2 h-[22rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,107,0,0.22),transparent_70%)] blur-[35px]" />
 
         {/* Moving light rays */}
         <div className="absolute inset-0 opacity-70">
@@ -66,9 +66,9 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
         {/* Ambient smoke */}
         <div className="absolute inset-0 opacity-40">
-          <div className="absolute left-[10%] top-[10%] h-64 w-64 rounded-full bg-blue-500/15 blur-[100px]" />
-          <div className="absolute right-[8%] top-[30%] h-56 w-56 rounded-full bg-orange-500/12 blur-[110px]" />
-          <div className="absolute bottom-[18%] right-[20%] h-72 w-72 rounded-full bg-blue-400/10 blur-[120px]" />
+          <div className="absolute left-[10%] top-[10%] h-64 w-64 rounded-full bg-blue-500/15 blur-[40px]" />
+          <div className="absolute right-[8%] top-[30%] h-56 w-56 rounded-full bg-orange-500/12 blur-[40px]" />
+          <div className="absolute bottom-[18%] right-[20%] h-72 w-72 rounded-full bg-blue-400/10 blur-[45px]" />
         </div>
 
         {/* Floating sparks / particles / dust */}
@@ -111,7 +111,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
           {/* IT Logo */}
           <motion.div
-            className="relative z-10 flex h-20 w-20 items-center justify-center rounded-[1.35rem] border border-white/20 bg-white/[0.06] shadow-[0_0_40px_rgba(37,99,235,0.35),inset_0_0_22px_rgba(255,255,255,0.05)] backdrop-blur-xl sm:h-24 sm:w-24"
+            className="relative z-10 flex h-20 w-20 items-center justify-center rounded-[1.35rem] border border-white/20 bg-white/[0.06] shadow-[0_0_40px_rgba(37,99,235,0.35),inset_0_0_22px_rgba(255,255,255,0.05)] backdrop-blur-sm sm:h-24 sm:w-24"
             animate={{
               rotate: reduceMotion ? 0 : [0, 3, -3, 0],
               scale: reduceMotion ? [1, 1, 1] : [1, 1.06, 1],
@@ -199,7 +199,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
         {/* Loading bar */}
         <div className="splash-loader mt-8 w-64 sm:w-80">
-          <div className="relative h-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.06] backdrop-blur-md">
+          <div className="relative h-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.06] backdrop-blur-sm">
             <motion.div
               className="h-full rounded-full bg-gradient-to-r from-blue-500 via-blue-400 to-orange-400"
               style={{ width: `${progress}%` }}

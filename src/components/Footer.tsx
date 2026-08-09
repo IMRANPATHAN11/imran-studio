@@ -6,9 +6,7 @@ const links = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
   { label: 'Process', href: '#process' },
-  { label: 'Testimonials', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -86,9 +84,9 @@ export default function Footer() {
       {/* ===== Background: blurred orange circles ===== */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Large ambient glows */}
-        <div className="absolute -left-[10%] top-[10%] h-72 w-72 rounded-full bg-[#ff6b00]/15 blur-[140px]" />
-        <div className="absolute -right-[8%] bottom-[20%] h-80 w-80 rounded-full bg-[#ff6b00]/12 blur-[160px]" />
-        <div className="absolute left-[40%] top-[50%] h-56 w-56 rounded-full bg-[#ff6b00]/10 blur-[130px]" />
+        <div className="absolute -left-[10%] top-[10%] h-72 w-72 rounded-full bg-[#ff6b00]/15 blur-[50px]" />
+        <div className="absolute -right-[8%] bottom-[20%] h-80 w-80 rounded-full bg-[#ff6b00]/12 blur-[60px]" />
+        <div className="absolute left-[40%] top-[50%] h-56 w-56 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
 
         {/* Moving particles */}
         {particles.map((p) => (
@@ -174,7 +172,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Instagram profile"
-              className="footer-social-link group mt-6 flex items-center gap-4 rounded-[1.25rem] border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:shadow-[0_0_30px_rgba(255,107,0,0.2)]"
+              className="footer-social-link group mt-6 flex items-center gap-4 rounded-[1.25rem] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:shadow-[0_0_30px_rgba(255,107,0,0.2)]"
             >
               <motion.div
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#ff6b00] transition-all duration-300 group-hover:border-[#ff6b00]/30 group-hover:bg-[#ff6b00]/15 group-hover:shadow-[0_0_20px_rgba(255,107,0,0.35)]"
@@ -207,7 +205,7 @@ export default function Footer() {
             <a
               href="mailto:techimran0111@gmail.com?subject=Project%20Inquiry&body=Hello%20Imran,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20my%20project.%0D%0A%0D%0ABest%20Regards"
               aria-label="Send email to techimran0111@gmail.com"
-              className="footer-social-link group mt-6 flex items-center gap-4 rounded-[1.25rem] border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:shadow-[0_0_30px_rgba(255,107,0,0.2)]"
+              className="footer-social-link group mt-6 flex items-center gap-4 rounded-[1.25rem] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:shadow-[0_0_30px_rgba(255,107,0,0.2)]"
             >
               <motion.div
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#ff6b00] transition-all duration-300 group-hover:border-[#ff6b00]/30 group-hover:bg-[#ff6b00]/15 group-hover:shadow-[0_0_20px_rgba(255,107,0,0.35)]"
@@ -235,7 +233,7 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="footer-bottom-bar mt-16 flex flex-col items-center gap-6 rounded-[1.75rem] border border-white/10 bg-white/5 px-6 py-6 backdrop-blur-xl sm:flex-row sm:justify-between sm:px-8"
+          className="footer-bottom-bar mt-16 flex flex-col items-center gap-6 rounded-[1.75rem] border border-white/10 bg-white/5 px-6 py-6 backdrop-blur-sm sm:flex-row sm:justify-between sm:px-8"
         >
           {/* Left: Copyright */}
           <div className="text-center sm:text-left">
@@ -260,7 +258,7 @@ export default function Footer() {
             type="button"
             onClick={scrollToTop}
             aria-label="Scroll to top of page"
-            className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:text-[#ff6b00] hover:shadow-[0_0_25px_rgba(255,107,0,0.2)]"
+            className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-medium text-slate-300 backdrop-blur-sm transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:text-[#ff6b00] hover:shadow-[0_0_25px_rgba(255,107,0,0.2)]"
           >
             <span>Back to Top</span>
             <motion.span

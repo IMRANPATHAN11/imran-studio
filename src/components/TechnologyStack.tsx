@@ -18,8 +18,8 @@ const technologies = [
 export default function TechnologyStack() {
   return (
     <section className="relative overflow-hidden bg-[#050505] px-6 py-24 sm:px-8 lg:px-12">
-      <div className="absolute left-[8%] top-[18%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[140px]" />
-      <div className="absolute bottom-[10%] right-[8%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[160px]" />
+      <div className="absolute left-[8%] top-[18%] h-40 w-40 rounded-full bg-[#ff6b00]/10 blur-[50px]" />
+      <div className="absolute bottom-[10%] right-[8%] h-48 w-48 rounded-full bg-[#ff6b00]/10 blur-[60px]" />
       <ScrollReveal className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#ff6b00]">Stack</p>
@@ -35,7 +35,7 @@ export default function TechnologyStack() {
           {technologies.map((technology) => (
             <AnimatedCard
               key={technology}
-              className="tech-card rounded-[1.35rem] border border-white/10 bg-white/8 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#ff6b00]/40 hover:shadow-[0_0_40px_rgba(255,107,0,0.14)]"
+              className="tech-card rounded-[1.35rem] border border-white/10 bg-white/8 p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#ff6b00]/40 hover:shadow-[0_0_40px_rgba(255,107,0,0.14)]"
             >
               <div className="flex items-center justify-between">
                 <p className="text-lg font-semibold text-white">{technology}</p>
