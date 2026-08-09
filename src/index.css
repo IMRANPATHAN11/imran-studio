@@ -542,97 +542,112 @@ section::after {
 }
 
 /* ============================================================
-   Splash screen
+   Splash screen — premium developer-studio intro
    ============================================================ */
-/* Rotating diamond-shaped energy ring around the logo */
-.energy-ring {
-  border: 1.5px solid rgba(96, 165, 250, 0.55);
-  border-radius: 0.85rem;
-  background:
-    linear-gradient(135deg, rgba(37, 99, 235, 0.12), transparent 40%, rgba(255, 107, 0, 0.12)),
-    transparent;
-  box-shadow:
-    0 0 22px rgba(37, 99, 235, 0.45),
-    inset 0 0 18px rgba(255, 107, 0, 0.25);
-  animation:
-    energyRingSpin 5s linear infinite,
-    energyRingPulse 2s ease-in-out infinite;
-  will-change: transform, opacity;
+
+/* Orbit wrapper — handles positioning only, never rotates */
+.splash-orbit-wrapper {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
-/* Rotating diamond */
-@keyframes energyRingSpin {
+/* Orbit ring — rotates continuously, GPU-friendly */
+.splash-orbit-ring {
+  animation: splashOrbitSpin 16s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Thin orbit path circle */
+.splash-orbit-path {
+  border: 1px solid rgba(109, 93, 251, 0.18);
+  box-shadow:
+    0 0 18px rgba(109, 93, 251, 0.08),
+    inset 0 0 18px rgba(56, 189, 248, 0.04);
+}
+
+/* Glowing nodes on the orbit */
+.splash-orbit-node {
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Slow orbit rotation — no jump at loop boundary */
+@keyframes splashOrbitSpin {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Electric pulse every second */
-@keyframes energyRingPulse {
-  0%, 100% {
-    opacity: 0.75;
-    box-shadow: 0 0 22px rgba(37, 99, 235, 0.45), inset 0 0 18px rgba(255, 107, 0, 0.25);
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 40px rgba(37, 99, 235, 0.75), inset 0 0 28px rgba(255, 107, 0, 0.45);
-  }
-}
-
-/* Light trails that follow the ring corners */
-.energy-ring::before,
-.energy-ring::after {
-  content: '';
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(96, 165, 250, 0.6) 55%, transparent 75%);
-  box-shadow: 0 0 18px rgba(96, 165, 250, 0.8);
-}
-
-.energy-ring::before {
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.energy-ring::after {
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Tron road: flowing orange fire energy */
-.road-fire {
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(255, 107, 0, 0.5), transparent 70%),
-    linear-gradient(to bottom, transparent 0%, rgba(255, 107, 0, 0.28) 30%, rgba(255, 138, 61, 0.18) 70%, transparent 100%);
-  animation: roadFireFlow 1.6s linear infinite;
+/* Background glow breathing */
+.splash-glow-violet {
+  animation: splashGlowBreath 18s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
-@keyframes roadFireFlow {
-  0% {
-    transform: translateY(0);
-    opacity: 0.5;
+.splash-glow-amber {
+  animation: splashGlowBreath 22s ease-in-out infinite 3s;
+  will-change: transform, opacity;
+}
+
+.splash-glow-cyan {
+  animation: splashGlowBreath 20s ease-in-out infinite 6s;
+  will-change: transform, opacity;
+}
+
+@keyframes splashGlowBreath {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
     opacity: 1;
-  }
-  100% {
-    transform: translateY(16px);
-    opacity: 0.5;
+    transform: translate3d(0, -12px, 0) scale(1.06);
   }
 }
 
-/* Loading bar shiny sweep */
-.loader-shine {
-  animation: loaderShine 1.4s ease-in-out infinite;
+/* Ambient particles — very subtle */
+.splash-particle {
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Logo glow pulse */
+.splash-logo-glow {
+  animation: splashLogoGlow 4s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes splashLogoGlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Premium glass progress bar */
+.splash-progress-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.splash-progress-fill {
+  background: linear-gradient(90deg, #6D5DFB 0%, #38BDF8 50%, #FF7A18 100%);
+  box-shadow: 0 0 12px rgba(109, 93, 251, 0.35);
+  will-change: width;
+}
+
+/* Moving highlight on the progress bar */
+.splash-progress-shine {
+  animation: splashShine 1.6s ease-in-out infinite;
   will-change: transform;
 }
 
-@keyframes loaderShine {
+@keyframes splashShine {
   0% {
     transform: translateX(-120%);
   }
@@ -2038,7 +2053,6 @@ svg {
   .animate-caret { animation: none !important; }
   .text-mask-reveal > span { animation: none !important; transform: translateY(0) !important; }
   .blur-to-sharp { animation: none !important; }
-  .energy-ring { animation: none !important; }
 }
 
 /* ============================================================

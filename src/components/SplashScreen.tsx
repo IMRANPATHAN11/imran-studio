@@ -9,21 +9,21 @@ type SplashScreenProps = {
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
-// Deterministic floating sparks / fire particles / dust
-const sparks = Array.from({ length: 10 }, (_, i) => ({
+// Deterministic ambient particles — very low opacity, slow drift
+const ambientParticles = Array.from({ length: 8 }, (_, i) => ({
   left: `${(i * 37 + 11) % 100}%`,
   top: `${(i * 53 + 17) % 90}%`,
   delay: `${(i % 5) * 0.35}s`,
-  duration: `${2.4 + (i % 4) * 0.6}s`,
-  size: 3 + (i % 3),
-  hue: i % 2 === 0 ? 'rgba(206, 93, 17, 0.9)' : 'rgba(255, 138, 61, 0.9)',
+  duration: `${14 + (i % 4) * 3}s`,
+  size: 2 + (i % 2),
 }))
 
-const roadParticles = Array.from({ length: 14 }, (_, i) => ({
-  left: `${18 + ((i * 5.7) % 64)}%`,
-  delay: `${(i % 7) * 0.28}s`,
-  duration: `${1.1 + (i % 5) * 0.22}s`,
-}))
+// Orbit nodes — positioned on the ring, rotate with the orbit
+const orbitNodes = [
+  { angle: 0, size: 6, color: '#6D5DFB' },
+  { angle: 120, size: 4, color: '#38BDF8' },
+  { angle: 240, size: 5, color: '#FF7A18' },
+]
 
 export default function SplashScreen({ onFinish }: SplashScreenProps) {
   const reduceMotion = useReducedMotion()
@@ -39,7 +39,8 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[99] flex items-center justify-center overflow-hidden bg-[#04050a]"
+      className="fixed inset-0 z-[99] flex items-center justify-center overflow-hidden bg-[#02040A]"
+      style={{ minHeight: '100dvh' }}
       initial={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
       animate={{
         opacity: isVisible ? 1 : 0,
@@ -50,48 +51,39 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
       exit={{ opacity: 0 }}
       aria-hidden="true"
     >
-      {/* ------- Background layers ------- */}
-      <div className="absolute inset-0">
-        {/* Deep space gradient + blue/orange glows */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05070d] via-[#0a1630] to-[#05060b]" />
-        <div className="absolute left-1/2 top-[38%] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.35),transparent_65%)] blur-[30px]" />
-        <div className="absolute bottom-[6%] left-1/2 h-[22rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,107,0,0.22),transparent_70%)] blur-[35px]" />
+      {/* ------- Cinematic background atmosphere ------- */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Deep midnight navy base */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#0A1020_0%,#050816_45%,#02040A_100%)]" />
 
-        {/* Moving light rays */}
-        <div className="absolute inset-0 opacity-70">
-          <div className="absolute left-[-20%] top-[15%] h-px w-[140%] rotate-[-8deg] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
-          <div className="absolute left-[-10%] top-[60%] h-px w-[120%] rotate-[6deg] bg-gradient-to-r from-transparent via-orange-400/25 to-transparent" />
-          <div className="absolute left-[-5%] top-[80%] h-px w-[110%] rotate-[-4deg] bg-gradient-to-r from-transparent via-blue-300/20 to-transparent" />
-        </div>
+        {/* Deep violet/blue glow behind logo */}
+        <div className="splash-glow-violet absolute left-1/2 top-[38%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(109,93,251,0.16),transparent_65%)] blur-[40px]" />
 
-        {/* Ambient smoke */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute left-[10%] top-[10%] h-64 w-64 rounded-full bg-blue-500/15 blur-[40px]" />
-          <div className="absolute right-[8%] top-[30%] h-56 w-56 rounded-full bg-orange-500/12 blur-[40px]" />
-          <div className="absolute bottom-[18%] right-[20%] h-72 w-72 rounded-full bg-blue-400/10 blur-[45px]" />
-        </div>
+        {/* Subtle warm amber edge glow */}
+        <div className="splash-glow-amber absolute bottom-[8%] right-[-5%] h-[20rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.08),transparent_70%)] blur-[45px]" />
 
-        {/* Floating sparks / particles / dust */}
-        {sparks.map((spark, i) => (
+        {/* Faint cyan glow */}
+        <div className="splash-glow-cyan absolute left-[-8%] top-[20%] h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.06),transparent_70%)] blur-[40px]" />
+
+        {/* Ambient particles — very subtle, edges only */}
+        {ambientParticles.map((p, i) => (
           <motion.span
-            key={`spark-${i}`}
-            className="absolute rounded-full"
+            key={`ambient-${i}`}
+            className="splash-particle absolute rounded-full bg-white/30"
             style={{
-              left: spark.left,
-              top: spark.top,
-              width: spark.size,
-              height: spark.size,
-              background: spark.hue,
-              boxShadow: `0 0 ${spark.size * 3}px ${spark.hue}`,
+              left: p.left,
+              top: p.top,
+              width: p.size,
+              height: p.size,
             }}
-            animate={{
-              y: reduceMotion ? [0, 0] : [0, -50, 0],
-              x: reduceMotion ? 0 : [0, 8, 0],
-              opacity: [0, 0.9, 0],
-            }}
+            animate={
+              reduceMotion
+                ? { opacity: 0.15 }
+                : { y: [0, -30, 0], opacity: [0.05, 0.2, 0.05] }
+            }
             transition={{
-              duration: parseFloat(spark.duration),
-              delay: parseFloat(spark.delay),
+              duration: parseFloat(p.duration),
+              delay: parseFloat(p.delay),
               repeat: Infinity,
               ease: 'easeInOut',
             }}
@@ -100,78 +92,65 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
       </div>
 
       {/* ------- Center content ------- */}
-      <div className="relative z-10 flex flex-col items-center">
-        {/* Logo + energy ring */}
+      <div className="relative z-10 flex flex-col items-center px-6" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+        {/* Logo + orbit system */}
         <div className="relative flex items-center justify-center">
-          {/* Outer rotating diamond energy ring */}
-          <div className="energy-ring absolute h-44 w-44 sm:h-52 sm:w-52" />
+          {/* Orbit wrapper — handles positioning only, no rotation */}
+          <div className="splash-orbit-wrapper absolute h-44 w-44 sm:h-56 sm:w-56">
+            {/* Orbit ring — rotates continuously, GPU-friendly */}
+            <div className="splash-orbit-ring absolute inset-0 rounded-full">
+              {/* Orbit path (thin circle) */}
+              <div className="splash-orbit-path absolute inset-0 rounded-full" />
 
-          {/* Spotlight glow */}
-          <div className="absolute h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.28),rgba(255,107,0,0.12)_45%,transparent_72%)] blur-[20px]" />
+              {/* Glowing nodes on the orbit */}
+              {orbitNodes.map((node, i) => (
+                <span
+                  key={`node-${i}`}
+                  className="splash-orbit-node absolute"
+                  style={{
+                    width: node.size,
+                    height: node.size,
+                    background: node.color,
+                    boxShadow: `0 0 ${node.size * 3}px ${node.color}`,
+                    left: '50%',
+                    top: '50%',
+                    transform: `rotate(${node.angle}deg) translateX(5.5rem) translate(-50%, -50%)`,
+                    transformOrigin: '0 0',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
 
-          {/* IT Logo */}
+          {/* Soft spotlight glow behind logo */}
+          <div className="splash-logo-glow absolute h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(109,93,251,0.18),rgba(56,189,248,0.08)_45%,transparent_72%)] blur-[24px]" />
+
+          {/* Premium glass IT logo */}
           <motion.div
-            className="relative z-10 flex h-20 w-20 items-center justify-center rounded-[1.35rem] border border-white/20 bg-white/[0.06] shadow-[0_0_40px_rgba(37,99,235,0.35),inset_0_0_22px_rgba(255,255,255,0.05)] backdrop-blur-sm sm:h-24 sm:w-24"
+            className="splash-logo relative z-10 flex h-20 w-20 items-center justify-center rounded-[1.35rem] border border-white/15 bg-white/[0.06] shadow-[0_0_40px_rgba(109,93,251,0.2),inset_0_0_22px_rgba(255,255,255,0.05)] backdrop-blur-md sm:h-24 sm:w-24"
             animate={{
-              rotate: reduceMotion ? 0 : [0, 3, -3, 0],
-              scale: reduceMotion ? [1, 1, 1] : [1, 1.06, 1],
+              scale: reduceMotion ? [1, 1, 1] : [1, 1.04, 1],
             }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* Logo reflections */}
-            <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-[linear-gradient(135deg,rgba(255,255,255,0.18),transparent_40%,transparent_60%,rgba(255,255,255,0.06))]" />
+            {/* Glass reflections */}
+            <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_40%,transparent_60%,rgba(255,255,255,0.04))]" />
             <div className="pointer-events-none absolute left-1 top-1 right-4 h-6 rounded-t-[1.1rem] bg-white/5 blur-[2px]" />
 
-            <span className="text-2xl font-bold tracking-[0.08em] text-white drop-shadow-[0_0_14px_rgba(96,165,250,0.8)] sm:text-3xl">
+            {/* Subtle violet edge glow */}
+            <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] border border-[#6D5DFB]/20" />
+
+            <span className="text-2xl font-bold tracking-[0.08em] text-white sm:text-3xl">
               IT
             </span>
           </motion.div>
         </div>
 
-        {/* Tron road */}
-        <div className="splash-road relative mt-8 h-24 w-72 overflow-hidden sm:w-96">
-          {/* Perspective road base */}
-          <div
-            className="absolute inset-x-8 bottom-0 top-6 mx-auto"
-            style={{
-              clipPath: 'polygon(0 100%, 100% 100%, 70% 0, 30% 0)',
-              background: 'linear-gradient(to bottom, transparent 0%, rgba(37,99,235,0.18) 22%, rgba(37,99,235,0.12) 70%, transparent 100%)',
-            }}
-          />
-          {/* Blue lane lines */}
-          <div className="absolute inset-x-0 top-2 bottom-0" style={{ perspective: '300px' }}>
-            <div className="absolute left-1/2 top-6 bottom-0 w-px -translate-x-[38%] bg-gradient-to-b from-blue-400/70 to-transparent" />
-            <div className="absolute left-1/2 top-6 bottom-0 w-px translate-x-[38%] bg-gradient-to-b from-blue-400/70 to-transparent" />
-          </div>
-          {/* Flowing orange fire energy */}
-          <div className="road-fire absolute inset-x-0 top-10 bottom-0" />
-          {/* Moving light streaks */}
-          {roadParticles.map((p, i) => (
-            <motion.span
-              key={`road-${i}`}
-              className="absolute top-10 bottom-0 w-[2px] rounded-full bg-[linear-gradient(to_bottom,rgba(96,165,250,0.9),rgba(255,107,0,0.6),transparent)]"
-              style={{ left: p.left }}
-              initial={{ y: 0, opacity: 0 }}
-              animate={
-                reduceMotion
-                  ? { y: 0, opacity: 0.3 }
-                  : { y: [0, 200], opacity: [0, 0.9, 0] }
-              }
-              transition={{
-                duration: parseFloat(p.duration),
-                delay: parseFloat(p.delay),
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-            />
-          ))}
-        </div>
-
         {/* Title */}
-        <div className="mt-8 text-center">
-          <h1 className="flex items-baseline justify-center gap-1 text-2xl font-extrabold tracking-[0.28em] sm:text-3xl">
+        <div className="mt-10 text-center">
+          <h1 className="flex items-baseline justify-center gap-1 text-xl font-bold tracking-[0.28em] sm:text-2xl">
             <motion.span
-              className="text-white drop-shadow-[0_0_18px_rgba(96,165,250,0.55)]"
+              className="text-[#F8FAFC]"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
@@ -179,7 +158,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
               IMRAN
             </motion.span>
             <motion.span
-              className="bg-gradient-to-r from-orange-400 via-[#ff8a3d] to-orange-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(255,107,0,0.6)]"
+              className="bg-gradient-to-r from-[#6D5DFB] via-[#38BDF8] to-[#FF7A18] bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
@@ -188,7 +167,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
             </motion.span>
           </h1>
           <motion.p
-            className="mt-3 text-[0.62rem] font-medium uppercase tracking-[0.52em] text-slate-400 [text-shadow:0_0_14px_rgba(96,165,250,0.35)] sm:text-xs"
+            className="mt-3 text-[0.6rem] font-medium uppercase tracking-[0.52em] text-slate-400 sm:text-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.5 }}
@@ -197,15 +176,15 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
           </motion.p>
         </div>
 
-        {/* Loading bar */}
+        {/* Premium glass loading bar */}
         <div className="splash-loader mt-8 w-64 sm:w-80">
-          <div className="relative h-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.06] backdrop-blur-sm">
+          <div className="splash-progress-track relative h-2 overflow-hidden rounded-full border border-white/10 bg-white/[0.05] shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)] backdrop-blur-sm">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-blue-500 via-blue-400 to-orange-400"
+              className="splash-progress-fill h-full rounded-full"
               style={{ width: `${progress}%` }}
               transition={{ ease: 'easeInOut' }}
             />
-            <div className="loader-shine absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+            <div className="splash-progress-shine absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           </div>
           <div className="mt-3 flex items-center justify-between text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
             <span>Loading</span>
@@ -223,7 +202,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         animate={{ opacity: isComplete ? 1 : 0 }}
         transition={{ duration: 0.35 }}
         style={{
-          background: 'radial-gradient(circle at 50% 42%, rgba(200,230,255,0.9), rgba(37,99,235,0.4) 30%, rgba(255,107,0,0.25) 60%, transparent 80%)',
+          background: 'radial-gradient(circle at 50% 42%, rgba(200,230,255,0.9), rgba(109,93,251,0.4) 30%, rgba(56,189,248,0.25) 60%, transparent 80%)',
         }}
       />
       <motion.div
