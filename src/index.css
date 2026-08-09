@@ -1216,31 +1216,6 @@ section::after {
   50% { left: 120%; }
 }
 
-/* ===== Featured project: animated browser scroll ===== */
-.browser-scroll {
-  max-height: 260px;
-  overflow: hidden;
-  animation: browserAutoScroll 8s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes browserAutoScroll {
-  0%, 15% { transform: translateY(0); }
-  45%, 60% { transform: translateY(-40%); }
-  85%, 100% { transform: translateY(0); }
-}
-
-.browser-scrollbar {
-  animation: browserScrollbarMove 8s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes browserScrollbarMove {
-  0%, 15% { transform: translateY(0); }
-  45%, 60% { transform: translateY(200%); }
-  85%, 100% { transform: translateY(0); }
-}
-
 /* ============================================================
    Mobile Responsiveness
    ============================================================ */
@@ -1409,10 +1384,6 @@ svg {
     padding: 1.25rem !important;
   }
 
-  /* Featured project inner */
-  .featured-inner {
-    padding: 1.25rem !important;
-  }
 }
 
 /* ============================================================
@@ -1530,9 +1501,6 @@ svg {
     padding: 1.5rem !important;
   }
 
-  .featured-inner {
-    padding: 1.5rem !important;
-  }
 }
 
 /* ============================================================
@@ -1647,9 +1615,6 @@ svg {
     padding: 1.5rem !important;
   }
 
-  .featured-inner {
-    padding: 1.5rem !important;
-  }
 }
 
 /* ============================================================
@@ -1764,9 +1729,6 @@ svg {
     padding: 1.5rem !important;
   }
 
-  .featured-inner {
-    padding: 1.5rem !important;
-  }
 }
 
 /* ============================================================
@@ -1881,9 +1843,6 @@ svg {
     padding: 1.75rem !important;
   }
 
-  .featured-inner {
-    padding: 1.75rem !important;
-  }
 }
 
 /* ============================================================
@@ -1998,9 +1957,6 @@ svg {
     padding: 1.75rem !important;
   }
 
-  .featured-inner {
-    padding: 1.75rem !important;
-  }
 }
 
 /* ============================================================
@@ -2030,7 +1986,6 @@ svg {
   .card-reflect::after { animation: none !important; }
   .section-divider::after { animation: none !important; }
   .process-connector::after { animation: none !important; }
-  .browser-scroll, .browser-scrollbar { animation: none !important; }
   .btn-glow-pulse { animation: none !important; }
   .icon-float { animation: none !important; }
   .gradient-shimmer { animation: none !important; }
@@ -2382,17 +2337,6 @@ section {
 :root[data-theme='light'] .input-premium select option {
   background: #fff !important;
   color: #1a1a1a !important;
-}
-
-/* Featured project inner browser preview — light surface */
-:root[data-theme='light'] .from-\[\#171717\] {
-  background-image: linear-gradient(135deg, #ffffff 0%, #faf6f1 50%, #fff8f2 100%) !important;
-}
-:root[data-theme='light'] .via-\[\#0f0f0f\] {
-  --tw-gradient-via: #faf6f1 !important;
-}
-:root[data-theme='light'] .to-\[\#1b140f\] {
-  --tw-gradient-to: #fff8f2 !important;
 }
 
 /* Browser skeleton bars in light mode */
