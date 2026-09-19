@@ -203,8 +203,8 @@ export default function Footer() {
           >
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.42em] text-slate-500">Email</p>
             <a
-              href="mailto:techimran0111@gmail.com?subject=Project%20Inquiry&body=Hello%20Imran,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20my%20project.%0D%0A%0D%0ABest%20Regards"
-              aria-label="Send email to techimran0111@gmail.com"
+              href="mailto:iktech.in@gmail.com?subject=Project%20Inquiry&body=Hello%20Imran,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20my%20project.%0D%0A%0D%0ABest%20Regards"
+              aria-label="Send email to iktech.in@gmail.com"
               className="footer-social-link group mt-6 flex items-center gap-4 rounded-[1.25rem] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#ff6b00]/40 hover:bg-[#ff6b00]/10 hover:shadow-[0_0_30px_rgba(255,107,0,0.2)]"
             >
               <motion.div
@@ -220,7 +220,7 @@ export default function Footer() {
                   Email
                 </p>
                 <p className="text-xs text-slate-400 transition-all duration-300 group-hover:translate-x-1 break-all">
-                  techimran0111@gmail.com
+                  iktech.in@gmail.com
                 </p>
               </div>
             </a>
